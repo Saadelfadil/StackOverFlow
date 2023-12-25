@@ -3,7 +3,6 @@ import React from "react";
 import "./globles.css";
 import { Inter, Space_Grotesk } from "next/font/google";
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/context/ThemProvider";
 
 export const metadata: Metadata = {
   title: "Stack Over Flow Clone",
@@ -42,8 +41,9 @@ export default function RootLayout({
       <html lang="en">
         <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
           <ThemeProvider>
-            {children}
+            
           </ThemeProvider>
+          {children}
         </body>
       </html>
     </ClerkProvider>

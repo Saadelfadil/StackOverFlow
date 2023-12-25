@@ -1,6 +1,7 @@
+
+
 import { ClerkProvider } from "@clerk/nextjs";
-import React from "react";
-import "./globles.css";
+import "./globals.css";
 
 export default function RootLayout({
   children,
@@ -10,9 +11,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className="flex min-h-screen w-full items-center justify-center">
-          {children}
-        </body>
+        <body className="flex min-h-screen w-full items-center justify-center">{children}</body>
       </html>
     </ClerkProvider>
   );

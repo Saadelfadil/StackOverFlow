@@ -1,6 +1,6 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import React from "react";
-import "./globles.css";
+import "./globagloblesls.css";
 
 export default function RootLayout({
   children,

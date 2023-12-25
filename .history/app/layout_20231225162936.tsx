@@ -31,12 +31,12 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider
-      appearance={{
-        elements: {
-          formButtonPrimary: "primary-gradient",
-          footerActionLink: "primary-text-gradient hover:text-primary-500",
-        },
-      }}
+    appearance={{
+      elements: {
+        formButtonPrimary: 'primary-gradient',
+        footerActionLink: ''
+      }
+    }}
     >
       <html lang="en">
         <body className={`${inter.variable} ${spaceGrotesk.variable}`}>

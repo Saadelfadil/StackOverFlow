@@ -1,5 +1,4 @@
 import Filter from "@/components/shared/Filter";
-import HomeFilters from "@/components/shared/home/HomeFilters";
 import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
 import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
@@ -31,7 +30,6 @@ export default function Home() {
           containerClasses="hidden max-md:flex"
         />
       </div>
-      <HomeFilters />
     </>
   );
 }

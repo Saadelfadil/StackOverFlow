@@ -19,8 +19,7 @@ export default function Home() {
           route="/"
           iconPosition="left"
           imgSrc="/assets/icons/search.svg"
-          placeholder="Search for questions"
-          otherClasses="flex-1"
+          
         />
         {/* <Filters /> */}
       </div>

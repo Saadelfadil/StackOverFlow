@@ -20,7 +20,6 @@ export default function Home() {
           iconPosition="left"
           imgSrc="/assets/icons/search.svg"
           placeholder="Search for questions"
-          otherClasses="flex-1"
         />
         {/* <Filters /> */}
       </div>

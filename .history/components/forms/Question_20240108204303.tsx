@@ -19,7 +19,8 @@ import { Input } from "../ui/input";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
 
-const type: any = "create";
+
+const type : any = "create"
 
 const Question = () => {
   const editorRef = useRef(null);
@@ -39,12 +40,11 @@ const Question = () => {
     setIsSubmitting(true);
 
     try {
-      // make an async call to our API -> create a question
-      // contain all form data
-      // navigate to home page
+        // make an async call to our API
     } catch (error) {
+        
     } finally {
-      setIsSubmitting(false);
+        setIsSubmitting(false);
     }
   }
 
@@ -204,16 +204,18 @@ const Question = () => {
             </FormItem>
           )}
         />
-        <Button
-          type="submit"
-          className="primary-gradient w-fit !text-light-900"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? (
-            <>{type === "edit" ? "Editing..." : "Posting..."}</>
-          ) : (
-            <>{type === "edit" ? "Edit Question" : "Ask a Question"}</>
-          )}
+        <Button type="submit" className="primary-gradient w-fit !text-light-900" disabled={isSubmitting}>
+            {
+                isSubmitting ? (
+                    <>
+                        {type === "edit" ? 'Editing...' : 'Posting...'}
+                    </>
+                ) : (
+                    <>
+                    {type === "edit" ? 'Edit Question' : 'Ask a Question'}
+                    </>
+                )
+            }
         </Button>
       </form>
     </Form>

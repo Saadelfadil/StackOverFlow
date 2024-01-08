@@ -16,8 +16,6 @@ import {
 } from "@/components/ui/form";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import { Badge } from "../ui/badge";
-import Image from "next/image";
 
 const Question = () => {
   const editorRef = useRef(null);
@@ -61,11 +59,6 @@ const Question = () => {
         }
       }
     }
-  };
-
-  const handleTagRemove = (tag: string, field: any) => {
-    const newTags = field.value.filter((t: string) => t !== tag);
-    form.setValue("tags", newTags);
   };
 
   return (
@@ -157,33 +150,11 @@ const Question = () => {
                 Tags
               </FormLabel>
               <FormControl className="mt-3.5">
-                <>
-                  <Input
-                    className="no-focus paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 min-h-[56px] border"
-                    placeholder="Add tags..."
-                    onKeyDown={(e) => handleInputKeyDown(e, field)}
-                  />
-                  {field.value.length > 0 && (
-                    <div className="flex-start mt-2.5 gap-2.5 ">
-                      {field.value.map((tag: any) => (
-                        <Badge
-                          key={tag}
-                          className="subtle-medium background-light800_dark300 text-light400_light500 flex items-center justify-center gap-2 rounded-md border-none px-4 py-2 capitalize "
-                          onClick={() => handleTagRemove(tag, field)}
-                        >
-                          {tag}
-                          <Image
-                            src="/assets/icons/close.svg"
-                            alt="Close icon"
-                            width={12}
-                            height={12}
-                            className="cursor-pointer object-contain invert-0 dark:invert"
-                          />
-                        </Badge>
-                      ))}
-                    </div>
-                  )}
-                </>
+                <Input
+                  className="no-focus paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 min-h-[56px] border"
+                  placeholder="Add tags..."
+                  onKeyDown={(e) => handleInputKeyDown(e, field)}
+                />
               </FormControl>
               <FormDescription className="body-regular mt-2.5 text-light-500">
                 Add up to 3 tags to describe what your question is about. You

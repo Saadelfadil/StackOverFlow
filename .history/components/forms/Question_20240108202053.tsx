@@ -59,14 +59,15 @@ const Question = () => {
         } else {
           form.trigger();
         }
-      }
+      } 
     }
   };
 
   const handleTagRemove = (tag: string, field: any) => {
-    const newTags = field.value.filter((t: string) => t !== tag);
+    const newTags = field.value.filtred((t: string) => t !== tag);
     form.setValue("tags", newTags);
-  };
+  }
+
 
   return (
     <Form {...form}>

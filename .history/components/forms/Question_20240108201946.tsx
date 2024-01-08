@@ -64,9 +64,6 @@ const Question = () => {
   };
 
   const handleTagRemove = (tag: string, field: any) => {
-    const newTags = field.value.filter((t: string) => t !== tag);
-    form.setValue("tags", newTags);
-  };
 
   return (
     <Form {...form}>

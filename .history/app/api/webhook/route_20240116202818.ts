@@ -51,6 +51,8 @@ export async function POST(req: Request) {
     });
   }
 
+  // Get the ID and type
+  // const { id } = evt.data;
   const eventType = evt.type;
 
   if (eventType === "user.created") {
@@ -63,7 +65,7 @@ export async function POST(req: Request) {
       username: username!,
       email: email_addresses[0].email_address,
       image: image_url,
-    });
+    })
     return NextResponse.json({ message: "OK", user: mongoUser });
   }
 

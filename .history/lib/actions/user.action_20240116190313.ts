@@ -38,7 +38,6 @@ export async function deleteUser(params: DeleteUserParams) {
     await Question.deleteMany({ author: user._id });
 
     const deletedUser = await User.findOneAndDelete({ clerkId });
-    return deletedUser;
   } catch (error) {
     console.log("HNA : ", error);
     throw error;

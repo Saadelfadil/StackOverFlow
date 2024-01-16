@@ -4,7 +4,6 @@ import User from "@/database/user.model";
 import { connectToDatabase } from "../mongoose";
 import { DeleteUserParams, UpdateUserParams } from "./shared.types";
 import { revalidatePath } from "next/cache";
-import Question from "@/database/question.model";
 
 export async function createUser(userData: any) {
   try {
@@ -24,21 +23,9 @@ export async function deleteUser(params: DeleteUserParams) {
     connectToDatabase();
     const { clerkId } = params;
 
-    const user = await User.findById({ clerkId });
+    const user = await User.findOneAndDelete({ userData });
 
-    if (!user) {
-      throw new Error("User not found");
-    }
-    
-    // delete user from database
-    // and questions, answers, comments, and votes
-
-    // const questionsIds = await Question.find({ author: user._id}).distinct('_id');
-
-    await Question.deleteMany({ author: user._id });
-
-    const deletedUser = await User.findOneAndDelete({ clerkId });
-    return deletedUser;
+    return newUser;
   } catch (error) {
     console.log("HNA : ", error);
     throw error;

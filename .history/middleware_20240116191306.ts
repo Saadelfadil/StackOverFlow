@@ -12,10 +12,8 @@ export default authMiddleware({
     "/tags",
     "/tags/:id",
     "/profile/:id",
-    "/comments",
-    "/jobs",
+    "/comm"
   ],
-  ignoredRoutes: ["/api/webhook", "/api/chatgpt"],
 });
 
 export const config = {

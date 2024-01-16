@@ -14,7 +14,7 @@ export async function createUser(userData: any) {
 
     return newUser;
   } catch (error) {
-    console.log("HNA :  ", error);
+    console.log("HNA : ", error);
     throw error;
   }
 }

@@ -55,12 +55,8 @@ export async function updateUser(params: UpdateUserParams) {
     connectToDatabase();
 
     const { clerkId, updateData, path } = params;
-    const updatedUser = await User.findOneAndUpdate({ clerkId }, updateData, {
-      new: true,
-    });
-
-    console.log("UPDATED USER : ", updatedUser);
-
+    await User.findOneAndUpdate({ clerkId }, updateData, { new: true });
+    
     revalidatePath(path);
   } catch (error) {
     console.log("HNA : ", error);
@@ -75,6 +71,7 @@ export async function getUserById(params: any) {
 
     const user = await User.findOne({ clerkId: userId });
 
+    console.log("USER : ", user);
     return user;
   } catch (error) {
     console.log("HNA : ", error);

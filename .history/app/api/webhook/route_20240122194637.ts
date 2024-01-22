@@ -79,7 +79,7 @@ export async function POST(req: Request) {
         name: `${first_name}${last_name ? ` ${last_name}` : ""}`,
         username: username!,
         email: email_addresses[0].email_address,
-        profile_image_url: image_url,
+        picture: image_url,
       },
       path: `/profile/${id}`,
     });

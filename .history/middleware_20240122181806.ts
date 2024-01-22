@@ -9,7 +9,7 @@ export default authMiddleware({
     "/",
     "/api/webhook",
     // "/ask-question",
-    // "/questions/:id",s
+    // "/questions/:id",
     // "/tags",
     // "/tags/:id",
     // "/profile",

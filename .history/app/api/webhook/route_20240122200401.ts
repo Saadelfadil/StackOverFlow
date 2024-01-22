@@ -84,7 +84,7 @@ export async function POST(req: Request) {
       path: `/profile/${id}`,
     });
 
-    // console.log(`Updating user  : `, mongoUser);
+    console.log(`Updating user  : `, mongoUser);
 
     return NextResponse.json({ message: "OK", user: mongoUser });
   }

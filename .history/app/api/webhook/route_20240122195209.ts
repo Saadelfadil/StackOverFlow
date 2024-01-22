@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import { createUser, deleteUser, updateUser } from "@/lib/actions/user.action";
+import { mongo } from "mongoose";
 
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
@@ -84,7 +85,7 @@ export async function POST(req: Request) {
       path: `/profile/${id}`,
     });
 
-    // console.log(`Updating user  : `, mongoUser);
+    console.log(`Updating user  : `, mongoUser);
 
     return NextResponse.json({ message: "OK", user: mongoUser });
   }

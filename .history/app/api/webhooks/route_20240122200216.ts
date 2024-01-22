@@ -3,7 +3,7 @@ import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
-import { createUser, deleteUser, updateUser } from "@/lib/actions/user.action";
+import { createUser } from "@/lib/actions/user.action.ts";
 
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
@@ -51,9 +51,9 @@ export async function POST(req: Request) {
     });
   }
 
-  // Get the ID and type
-  //   const { id } = evt.data;
   const eventType = evt.type;
+
+  console.log("Event type:", eventType);
 
   if (eventType === "user.created") {
     const { id, email_addresses, image_url, username, first_name, last_name } =
@@ -64,7 +64,7 @@ export async function POST(req: Request) {
       name: `${first_name}${last_name ? ` ${last_name}` : ""}`,
       username: username!,
       email: email_addresses[0].email_address,
-      profile_image_url: image_url,
+      image: image_url,
     });
     return NextResponse.json({ message: "OK", user: mongoUser });
   }
@@ -79,13 +79,10 @@ export async function POST(req: Request) {
         name: `${first_name}${last_name ? ` ${last_name}` : ""}`,
         username: username!,
         email: email_addresses[0].email_address,
-        profile_image_url: image_url,
+        image: image_url,
       },
       path: `/profile/${id}`,
     });
-
-    // console.log(`Updating user  : `, mongoUser);
-
     return NextResponse.json({ message: "OK", user: mongoUser });
   }
 
@@ -97,5 +94,5 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: "OK", user: deletedUser });
   }
 
-  return new Response("", { status: 200 });
+  return new Response("", { status: 201 });
 }

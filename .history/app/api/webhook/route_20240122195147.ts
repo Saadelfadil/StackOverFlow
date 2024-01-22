@@ -81,10 +81,9 @@ export async function POST(req: Request) {
         email: email_addresses[0].email_address,
         profile_image_url: image_url,
       },
+      console.log(`Updating user`)
       path: `/profile/${id}`,
     });
-
-    // console.log(`Updating user  : `, mongoUser);
 
     return NextResponse.json({ message: "OK", user: mongoUser });
   }
